@@ -48,7 +48,8 @@ class CandidateListCompareView(TemplateView):
         if not ctx:
             ctx = super(CandidateListCompareView, self).get_context_data(**kwargs)
 
-            clists = [{'name': cl.name,
+            clists = [{'id': cl.id,
+                       'name': cl.name,
                        'ballot': cl.ballot,
                        'url': cl.get_absolute_url(),
                        'wikipedia_page': cl.wikipedia_page,
