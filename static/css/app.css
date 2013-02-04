@@ -5186,9 +5186,22 @@ body {
 .text-center {
   text-align: center;
 }
-.numeric,
-.progress .bar {
+.numeric {
   direction: ltr;
+}
+.progress {
+  position: relative;
+}
+.progress .bar-label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 /* Add additional stylesheets below
 -------------------------------------------------- */
@@ -5231,6 +5244,11 @@ body {
   height: 36px;
   overflow: hidden;
 }
+@media (max-width: 767px) {
+  #app-header #login {
+    margin: -100px 0 80px;
+  }
+}
 #app-header .nav-pills {
   margin-bottom: 0;
 }
@@ -5264,6 +5282,27 @@ body {
   background: none;
   color: inherit;
 }
+@media (max-width: 767px) {
+  #app-header .nav-pills li {
+    width: 100%;
+  }
+  #app-header .nav-pills li a {
+    padding: 15px 0;
+    margin: 0;
+  }
+  #app-header .nav-pills li a:hover {
+    border: 0;
+    padding: 15px 0;
+    background: #f6f6f6;
+  }
+  #app-header .nav-pills li.active a,
+  #app-header .nav-pills li.active a:hover {
+    background: #222222;
+    color: #f1f1f1;
+    border: 0;
+    padding: 15px 0;
+  }
+}
 .breadcrumb {
   background: none;
   margin: 10px 0;
@@ -5288,6 +5327,12 @@ body {
 }
 .form-search button:hover {
   opacity: 1;
+}
+@media (max-width: 767px) {
+  .form-search button {
+    left: 2px;
+    top: 22px;
+  }
 }
 .nav-pills.nav-stacked > li > a {
   -webkit-border-radius: 0;
@@ -5419,7 +5464,7 @@ ol {
 .card-list header h1,
 .card-list header h2 {
   float: right;
-  padding: 5px 30px 5px 5px;
+  padding: 5px 30px 5px 15px;
   background: #464545;
   color: #fff;
   margin: 0;
@@ -5442,28 +5487,31 @@ ol {
   padding: 25px 58px 15px 15px;
   border-bottom: 1px solid #e6e6e6;
 }
-.card-list ul li .item-action {
-  font-size: 14px;
-}
-.card-list ul li .item-title {
-  font-size: 16px;
-  font-weight: bold;
-}
-.card-list ul li .item-title a {
-  color: #222222;
-}
-.card-list ul li .item-context {
-  font-size: 12px;
-}
 .card-list ul li:last-child {
   border-bottom: none;
+}
+.card-list ul li .progress {
+  margin-bottom: 0;
 }
 .card-list.compact ul li {
   padding: 20px 0 15px 0;
 }
 .card-list.compact header h1,
 .card-list.compact header h2 {
-  padding: 5px 20px 5px 5px;
+  padding: 5px 20px 5px 15px;
+}
+.item-action {
+  font-size: 14px;
+}
+.item-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.item-title a {
+  color: #222222;
+}
+.item-context {
+  font-size: 12px;
 }
 .card-main {
   margin-bottom: 60px;
@@ -5516,7 +5564,31 @@ ol {
   position: absolute;
   bottom: 0;
   left: 27px;
+  width: 83%;
+}
+@media (max-width: 979px) and (min-width: 768px) {
+  .card-main .btn-contact {
+    width: 82%;
+    left: 23px;
+  }
+}
+@media (min-width: 1200px) {
+  .card-main .btn-contact {
+    width: 85%;
+  }
+}
+@media (max-width: 767px) {
+  .card-main .btn-contact {
+    left: 38px;
+    width: 85%;
+  }
+}
+.card-main .object-actions {
+  position: absolute;
+  bottom: 0;
+  left: 27px;
   width: 232px;
+  text-align: center;
 }
 #member-details {
   padding-bottom: 40px;
@@ -5855,6 +5927,8 @@ ol {
   -moz-border-radius: 50%;
   border-radius: 50%;
   margin: 35px auto;
+  position: relative;
+  display: block;
 }
 .agenda-pie .agenda-percent {
   color: #464545;
@@ -5864,6 +5938,7 @@ ol {
   font-weight: 700;
   line-height: 1.2em;
   font-size: 12px;
+  direction: ltr;
 }
 .agenda-pie .agenda-percent .agenda-percent-num {
   display: block;
@@ -6096,6 +6171,14 @@ ul .btn-question {
 }
 .label.level2[href] {
   background-color: #1a1a1a;
+}
+.label.level1,
+.label.level2,
+.label.level3,
+.label.level4,
+.label.level5,
+.label.level6 {
+  margin: 2px;
 }
 .video_400_300 {
   width: 400px;
